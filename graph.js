@@ -5,9 +5,9 @@ var width = window.innerWidth,
     root;
 
 var force = d3.layout.force()
-    .linkDistance(80)
-    .charge(-120)
-    .gravity(.03)
+    .linkDistance(100)
+    .charge(-150)
+    .gravity(.02)
     .size([width, height])
     .on("tick", tick);
 
