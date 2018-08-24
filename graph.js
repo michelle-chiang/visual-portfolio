@@ -1,12 +1,12 @@
 // https://bl.ocks.org/mbostock/1093130
 
-var width = 960,
-    height = 500,
+var width = window.innerWidth,
+    height = window.innerHeight,
     root;
 
 var force = d3.layout.force()
-    .linkDistance(80)
-    .charge(-120)
+    .linkDistance(40)
+    .charge(-60)
     .gravity(.05)
     .size([width, height])
     .on("tick", tick);
@@ -16,9 +16,10 @@ var svg = d3.select("body").append("svg")
     .attr("height", height);
 
 var link = svg.selectAll(".link"),
-    node = svg.selectAll(".node");
+    node = svg.selectAll(".node"),
+    defs = svg.append('svg:defs');
 
-d3.json("art-pieces.json", function(error, json) {
+d3.json("original.json", function(error, json) {
   if (error) throw error;
 
   root = json;
@@ -35,6 +36,24 @@ function update() {
       .links(links)
       .start();
 
+  // Update defs.
+  nodes.forEach(function(d, i) {
+    const radius = Math.sqrt(d.size) / 10 || 4.5;
+    defs.append("circle:pattern")
+      .attr("id", d.name)
+      .attr("width", 1)
+      .attr("height", 1)
+      .attr("x", 0)
+      .attr("y", 0)
+      .append("svg:image")
+      .attr("xlink:href", d.img)
+      // .attr("width", 2 * radius)
+      // .attr("height", 2 * radius)
+      .attr("r", radius)
+      .attr("x", -2000)
+      .attr("y", -200);
+  })
+  
   // Update links.
   link = link.data(links, function(d) { return d.target.id; });
 
@@ -54,14 +73,11 @@ function update() {
       .call(force.drag);
 
   nodeEnter.append("circle")
-      .attr("r", function(d) { return Math.sqrt(d.size) / 10 || 4.5; });
-
-  nodeEnter.append("text")
-      .attr("dy", ".35em")
-      .text(function(d) { return d.name; });
+      .attr("r", function(d) { return Math.sqrt(d.size) / 10 || 4.5; })
 
   node.select("circle")
-      .style("fill", color);
+      // .style("fill", function(d) { return `url(#${d.name})` })
+      .style("fill", color)
 }
 
 function tick() {
