@@ -1,21 +1,21 @@
 // https://bl.ocks.org/mbostock/1093130
 
-var width = window.innerWidth,
-    height = window.innerHeight,
-    root;
+let root;
+const width = window.innerWidth,
+    height = window.innerHeight;
 
-var force = d3.layout.force()
+const force = d3.layout.force()
     .linkDistance(100)
     .charge(-150)
     .gravity(.02)
     .size([width, height])
     .on("tick", tick);
 
-var svg = d3.select("body").append("svg")
+const svg = d3.select("body").append("svg")
     .attr("width", width)
     .attr("height", height);
 
-var link = svg.selectAll(".link"),
+let link = svg.selectAll(".link"),
     node = svg.selectAll(".node"),
     defs = svg.append('svg:defs');
 
@@ -27,7 +27,7 @@ d3.json("art-pieces.json", function(error, json) {
 });
 
 function update() {
-  var nodes = flatten(root),
+  const nodes = flatten(root),
       links = d3.layout.tree().links(nodes);
 
   // Restart the force layout.
@@ -65,16 +65,17 @@ function update() {
 
   node.exit().remove();
 
-  var nodeEnter = node.enter().append("g")
+  const nodeEnter = node.enter().append("g")
       .attr("class", "node")
       .on("click", click)
       .call(force.drag);
 
   nodeEnter.append("circle")
-      .attr("r", function(d) { return Math.sqrt(d.size) / 10 || 4.5; })
+      .attr("r", function(d) { return Math.sqrt(d.size) / 10 || 4.5; });
 
   node.select("circle")
-      .style("fill", function(d) { return `url(#${d.name})` })
+      .style("fill", function(d) { return `url(#${d.name})` });
+      // TODO: fill parent nodes
       // .style("fill", color)
 }
 
@@ -111,7 +112,6 @@ function click(d) {
     d3.select(".slideshow-container")
       .style("display", "block");
     
-    // TODO: overlay slideshow on top of svg
     d3.select("svg")
       .style("display", "none")
   }
@@ -120,7 +120,7 @@ function click(d) {
 
 // Returns a list of all nodes under the root.
 function flatten(root) {
-  var nodes = [], i = 0;
+  let nodes = [], i = 0;
 
   function recurse(node) {
     if (node.children) node.children.forEach(recurse);
