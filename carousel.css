@@ -8,31 +8,35 @@ body {
   height: 100%;
 }
 
-.mySlides {
-  display: none;
-}
-
-img {
-  vertical-align: middle;
-}
-
 /* Slideshow container */
 .slideshow-container {
   position: absolute;
-  margin: 0 auto;
+  margin: auto;
   display: none;
   width: 100%;
-  z-index: 10;
+  /* max-width: 900px; */
   top: 50%;
   transform: translateY(-50%);
+  /* left: 50%; */
+  /* transform: translateX(-50%); */
 }
 
-/* Next & previous buttons */
-.prev, .next {
+/* Slides */
+.slide-container {
+  position: relative;
+  margin: auto;
+  width: 70%;
+  vertical-align: middle;
+}
+
+.slide {
+  display: none;
+}
+
+/* Next, previous, and exit buttons */
+.prev, .next, .close {
   cursor: pointer;
   position: absolute;
-  top: 50%;
-  transform: translateY(-50%);
   width: auto;
   padding: 16px;
   color: white;
@@ -42,15 +46,23 @@ img {
   border-radius: 0 3px 3px 0;
 }
 
-/* Position the "next button" to the right */
-.next {
+.prev:hover, .next:hover, .close:hover {
+  background-color: rgba(0,0,0,0.8);
+}
+
+.prev, .next {
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+.next, .close {
   right: 0;
   border-radius: 3px 0 0 3px;
 }
 
-/* On hover, add a black background color with a little bit see-through */
-.prev:hover, .next:hover {
-  background-color: rgba(0,0,0,0.8);
+.close {
+  top: 0;
+  font-size: 20px;
 }
 
 /* Caption text */
@@ -64,7 +76,7 @@ img {
   text-align: center;
 }
 
-/* The dots/bullets/indicators */
+/* Dots */
 .dot {
   cursor: pointer;
   height: 15px;

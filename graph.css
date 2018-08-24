@@ -1,8 +1,4 @@
-svg {
-    position: absolute;
-    top: 0;
-    z-index: -1;
-}
+/* https://bl.ocks.org/mbostock/1093130 */
 
 .node circle {
     cursor: pointer;

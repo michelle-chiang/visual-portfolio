@@ -15,7 +15,7 @@ function currentSlide(n) {
 
 function showSlides(n) {
   let i;
-  const slides = document.getElementsByClassName("mySlides");
+  const slides = document.getElementsByClassName("slide");
   const dots = document.getElementsByClassName("dot");
   
   if (n > slides.length) {
@@ -33,4 +33,12 @@ function showSlides(n) {
 
   slides[slideIndex-1].style.display = "block"; 
   dots[slideIndex-1].className += " active";
+}
+
+function hideSlides() {
+  d3.select(".slideshow-container")
+    .style("display", "none");
+    
+  d3.select("svg")
+    .style("display", "inline-block")
 }
