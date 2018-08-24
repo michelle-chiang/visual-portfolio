@@ -93,15 +93,27 @@ function color(d) {
       : "#fd8d3c"; // leaf node
 }
 
-// Toggle children on click.
 function click(d) {
-  if (d3.event.defaultPrevented) return; // ignore drag
+   // Ignore drag.
+  if (d3.event.defaultPrevented) return;
+  
+  // If parent node, toggle children on click.
   if (d.children) {
     d._children = d.children;
     d.children = null;
   } else {
     d.children = d._children;
     d._children = null;
+  }
+
+  // If child node, open carousel view.
+  if (!d.children) {
+    d3.select(".slideshow-container")
+      .style("display", "block");
+    
+    // TODO: overlay slideshow on top of svg
+    d3.select("svg")
+      .style("display", "none")
   }
   update();
 }
