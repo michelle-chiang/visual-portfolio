@@ -8,9 +8,9 @@
           "name": "calligraphy",
           "children": [
             {"name": "bird", "size": 500000, "img": "/img/bird.jpg"},
-            {"name": "CommunityStructure", "size": 3812},
-            {"name": "HierarchicalCluster", "size": 6714},
-            {"name": "MergeEdge", "size": 743}
+            {"name": "CommunityStructure", "size": 38120},
+            {"name": "HierarchicalCluster", "size": 67140},
+            {"name": "MergeEdge", "size": 7430}
           ]
         },
         {

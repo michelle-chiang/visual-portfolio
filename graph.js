@@ -5,9 +5,9 @@ var width = window.innerWidth,
     root;
 
 var force = d3.layout.force()
-    .linkDistance(40)
-    .charge(-60)
-    .gravity(.05)
+    .linkDistance(80)
+    .charge(-120)
+    .gravity(.03)
     .size([width, height])
     .on("tick", tick);
 
@@ -19,7 +19,7 @@ var link = svg.selectAll(".link"),
     node = svg.selectAll(".node"),
     defs = svg.append('svg:defs');
 
-d3.json("original.json", function(error, json) {
+d3.json("art-pieces.json", function(error, json) {
   if (error) throw error;
 
   root = json;
@@ -47,11 +47,9 @@ function update() {
       .attr("y", 0)
       .append("svg:image")
       .attr("xlink:href", d.img)
-      // .attr("width", 2 * radius)
-      // .attr("height", 2 * radius)
-      .attr("r", radius)
-      .attr("x", -2000)
-      .attr("y", -200);
+      .attr("height", 2 * radius)
+      .attr("x", 0)
+      .attr("y", 0);
   })
   
   // Update links.
@@ -76,8 +74,8 @@ function update() {
       .attr("r", function(d) { return Math.sqrt(d.size) / 10 || 4.5; })
 
   node.select("circle")
-      // .style("fill", function(d) { return `url(#${d.name})` })
-      .style("fill", color)
+      .style("fill", function(d) { return `url(#${d.name})` })
+      // .style("fill", color)
 }
 
 function tick() {
