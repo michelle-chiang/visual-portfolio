@@ -5,8 +5,8 @@ const width = window.innerWidth,
     height = window.innerHeight;
 
 const force = d3.layout.force()
-    .linkDistance(100)
-    .charge(-150)
+    .linkDistance(80)
+    .charge(-120)
     .gravity(.02)
     .size([width, height])
     .on("tick", tick);
@@ -19,12 +19,17 @@ let link = svg.selectAll(".link"),
     node = svg.selectAll(".node"),
     defs = svg.append('svg:defs');
 
-d3.json("art-pieces.json", function(error, json) {
-  if (error) throw error;
 
-  root = json;
-  update();
-});
+run();
+
+function run () {
+  d3.json("art-pieces.json", function(error, json) {
+    if (error) throw error;
+
+    root = json;
+    update();
+  });
+}
 
 function update() {
   const nodes = flatten(root),
@@ -74,9 +79,14 @@ function update() {
       .attr("r", function(d) { return Math.sqrt(d.size) / 10 || 4.5; });
 
   node.select("circle")
+    //   .style("fill", function(d) { return `url(#${d.name})` });
+    // TODO: fill parent nodes
+    .style("fill", color)
+
+  setTimeout(function() {
+    node.select("circle")
       .style("fill", function(d) { return `url(#${d.name})` });
-      // TODO: fill parent nodes
-      // .style("fill", color)
+  }, 5000);
 }
 
 function tick() {
@@ -108,7 +118,7 @@ function click(d) {
   }
 
   // If child node, open carousel view.
-  if (!d.children) {
+  if (d.img) {
     d3.select(".slideshow-container")
       .style("display", "block");
     

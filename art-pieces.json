@@ -7,34 +7,43 @@
         {
           "name": "calligraphy",
           "children": [
-            {"name": "bird", "size": 500000, "img": "/img/bird.jpg"},
-            {"name": "CommunityStructure", "size": 38120},
-            {"name": "HierarchicalCluster", "size": 67140},
-            {"name": "MergeEdge", "size": 7430}
+            {"name": "calligraphy-bird", "size": 500000, "img": "/img/calligraphy-bird.jpg"},
+            {"name": "calligraphy-lillies", "size": 310200, "img": "/img/calligraphy-lillies.jpg"}
           ]
         },
         {
           "name": "pottery",
           "children": [
-            {"name": "BetweennessCentrality", "size": 3534},
-            {"name": "LinkDistance", "size": 5731},
-            {"name": "MaxFlowMinCut", "size": 7840},
-            {"name": "ShortestPaths", "size": 5914},
-            {"name": "SpanningTree", "size": 3416}
-          ]
-        },
-        {
-          "name": "countries",
-          "children": [
-            {"name": "AspectRatioBanker", "size": 7074}
+            {"name": "pottery-flowers", "size": 353400, "img": "/img/pottery-flowers.jpg"},
+            {"name": "pottery-lion", "size": 173100, "img": "/img/pottery-lion.jpg"}
           ]
         },
         {
           "name": "zodiac",
           "children": [
-            {"name": "AspectRatioBanker", "size": 7074}
+            {"name": "zodiac-horses", "size": 70740, "img":"img/zodiac-horses.jpg"}
           ]
         }
+      ]
+    },
+    {
+      "name": "portrait",
+      "children": [
+        {
+          "name": "sketch",
+          "children": [
+            {"name": "portrait-sketch-man", "size": 350000, "img": "/img/portrait-sketch-man.jpg"},
+            {"name": "portrait-sketch-woman", "size": 700000, "img": "/img/portrait-sketch-woman.jpg"},
+            {"name": "portrait-sketch-woman2", "size": 400000, "img": "/img/portrait-sketch-woman2.jpg"}
+          ]
+        }
+      ]
+    },
+    {
+      "name": "exploration",
+      "children": [
+        {"name": "caveart", "size": 35000, "img": "/img/caveart.jpg"},
+        {"name": "navajo", "size": 70000, "img": "/img/navajo.jpg"}
       ]
     }
   ]

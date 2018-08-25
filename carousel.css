@@ -14,11 +14,8 @@ body {
   margin: auto;
   display: none;
   width: 100%;
-  /* max-width: 900px; */
   top: 50%;
   transform: translateY(-50%);
-  /* left: 50%; */
-  /* transform: translateX(-50%); */
 }
 
 /* Slides */
