@@ -5,9 +5,9 @@ const width = window.innerWidth,
     height = window.innerHeight;
 
 const force = d3.layout.force()
-    .linkDistance(80)
+    .linkDistance(60)
     .charge(-120)
-    .gravity(.02)
+    .gravity(.03)
     .size([width, height])
     .on("tick", tick);
 
@@ -51,7 +51,7 @@ function update() {
       .attr("x", 0)
       .attr("y", 0)
       .append("svg:image")
-      .attr("xlink:href", d.img)
+      .attr("xlink:href", `img/${d.name}-min.jpg`)
       .attr("height", 2 * radius)
       .attr("x", 0)
       .attr("y", 0);
@@ -79,14 +79,14 @@ function update() {
       .attr("r", function(d) { return Math.sqrt(d.size) / 10 || 4.5; });
 
   node.select("circle")
-    //   .style("fill", function(d) { return `url(#${d.name})` });
-    // TODO: fill parent nodes
-    .style("fill", color)
-
-  setTimeout(function() {
-    node.select("circle")
       .style("fill", function(d) { return `url(#${d.name})` });
-  }, 5000);
+    // TODO: fill parent nodes
+    // .style("fill", color)
+
+  // setTimeout(function() {
+  //   node.select("circle")
+  //     .style("fill", function(d) { return `url(#${d.name})` });
+  // }, 5000);
 }
 
 function tick() {

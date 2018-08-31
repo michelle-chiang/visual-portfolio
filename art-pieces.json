@@ -7,23 +7,26 @@
         {
           "name": "calligraphy",
           "children": [
-            {"name": "calligraphy-bird", "size": 500000, "img": "/img/calligraphy-bird.jpg"},
-            {"name": "calligraphy-lillies", "size": 310200, "img": "/img/calligraphy-lillies.jpg"}
+            {"name": "calligraphy-bird", "size": 132000},
+            {"name": "calligraphy-lillies", "size": 61020},
+            {"name": "zodiac-horses", "size": 30740}
           ]
         },
         {
           "name": "pottery",
           "children": [
-            {"name": "pottery-flowers", "size": 353400, "img": "/img/pottery-flowers.jpg"},
-            {"name": "pottery-lion", "size": 173100, "img": "/img/pottery-lion.jpg"}
+            {"name": "pottery-flowers", "size": 45340},
+            {"name": "pottery-lion", "size": 67310}
           ]
         },
         {
-          "name": "zodiac",
+          "name": "culture",
           "children": [
-            {"name": "zodiac-horses", "size": 70740, "img":"img/zodiac-horses.jpg"}
+            {"name": "culture-india", "size": 190740},
+            {"name": "culture-headdresses", "size": 60734}
           ]
-        }
+        },
+        {"name":"ink-chinese-lady", "size": 20300}
       ]
     },
     {
@@ -32,18 +35,46 @@
         {
           "name": "sketch",
           "children": [
-            {"name": "portrait-sketch-man", "size": 350000, "img": "/img/portrait-sketch-man.jpg"},
-            {"name": "portrait-sketch-woman", "size": 700000, "img": "/img/portrait-sketch-woman.jpg"},
-            {"name": "portrait-sketch-woman2", "size": 400000, "img": "/img/portrait-sketch-woman2.jpg"}
+            {"name": "portrait-sketch-man", "size": 75034},
+            {"name": "portrait-sketch-woman", "size": 80000},
+            {"name": "portrait-sketch-woman2", "size": 49870}
           ]
-        }
+        },
+        {"name": "portrait-mom", "size":173100}
+      ]
+    },
+    {
+      "name": "studies",
+      "children": [
+        {
+          "name": "still-life",
+          "children": [
+            {"name": "still-life-acrylic", "size": 78918},
+            {"name": "still-life-misc", "size": 63257},
+            {"name": "still-life-pipes", "size": 89742}
+          ]
+        },
+        {"name": "sketch-moses", "size": 350000}
       ]
     },
     {
       "name": "exploration",
       "children": [
-        {"name": "caveart", "size": 35000, "img": "/img/caveart.jpg"},
-        {"name": "navajo", "size": 70000, "img": "/img/navajo.jpg"}
+        {
+          "name": "tribal",
+          "children": [
+            {"name": "caveart", "size": 35000},
+            {"name": "navajo", "size": 35000}
+          ]
+        },
+        {
+          "name": "optical-illusions",
+          "children": [
+            {"name": "ink-mirage", "size": 96423}
+          ]
+        },
+        {"name": "ink-venice", "size": 106423},
+        {"name": "oil-pastel-landscape", "size": 92130}
       ]
     }
   ]
