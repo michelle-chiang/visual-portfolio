@@ -6,7 +6,7 @@ const width = window.innerWidth,
 
 const force = d3.layout.force()
     .linkDistance(60)
-    .charge(-120)
+    .charge(-180)
     .gravity(.03)
     .size([width, height])
     .on("tick", tick);
@@ -51,7 +51,7 @@ function update() {
       .attr("x", 0)
       .attr("y", 0)
       .append("svg:image")
-      .attr("xlink:href", `img/${d.name}-min.jpg`)
+      .attr("xlink:href", function() { return d.isCategory ? '' : `img/${d.name}-min.jpg`; })
       .attr("height", 2 * radius)
       .attr("x", 0)
       .attr("y", 0);
@@ -79,14 +79,8 @@ function update() {
       .attr("r", function(d) { return Math.sqrt(d.size) / 10 || 4.5; });
 
   node.select("circle")
-      .style("fill", function(d) { return `url(#${d.name})` });
-    // TODO: fill parent nodes
-    // .style("fill", color)
+    .style("fill", color)
 
-  // setTimeout(function() {
-  //   node.select("circle")
-  //     .style("fill", function(d) { return `url(#${d.name})` });
-  // }, 5000);
 }
 
 function tick() {
@@ -101,7 +95,7 @@ function tick() {
 function color(d) {
   return d._children ? "#3182bd" // collapsed package
       : d.children ? "#c6dbef" // expanded package
-      : "#fd8d3c"; // leaf node
+      : `url(#${d.name})`; // leaf node
 }
 
 function click(d) {
@@ -118,7 +112,7 @@ function click(d) {
   }
 
   // If child node, open carousel view.
-  if (d.img) {
+  if (!d.isCategory) {
     d3.select(".slideshow-container")
       .style("display", "block");
     

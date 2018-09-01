@@ -1,43 +1,49 @@
 {
  "name": "art",
+ "isCategory": true,
  "children": [
     {
-      "name": "asian",
+      "name": "asian", "isCategory": true,
       "children": [
         {
           "name": "calligraphy",
+          "isCategory": true,
           "children": [
-            {"name": "calligraphy-bird", "size": 132000},
-            {"name": "calligraphy-lillies", "size": 61020},
-            {"name": "zodiac-horses", "size": 30740}
+            {"name": "calligraphy-bird", "size": 192000},
+            {"name": "calligraphy-lillies", "size": 161020}
           ]
         },
         {
           "name": "pottery",
+          "isCategory": true,
           "children": [
             {"name": "pottery-flowers", "size": 45340},
-            {"name": "pottery-lion", "size": 67310}
+            {"name": "pottery-lion", "size": 167310}
           ]
         },
         {
           "name": "culture",
+          "isCategory": true,
           "children": [
-            {"name": "culture-india", "size": 190740},
+            {"name": "culture-india", "size": 290740},
             {"name": "culture-headdresses", "size": 60734}
           ]
         },
-        {"name":"ink-chinese-lady", "size": 20300}
+        {"name": "zodiac-horses", "size": 107400},
+        {"name":"ink-chinese-lady", "size": 110300}
       ]
     },
     {
       "name": "portrait",
+      "isCategory": true,
       "children": [
         {
           "name": "sketch",
+          "isCategory": true,
           "children": [
-            {"name": "portrait-sketch-man", "size": 75034},
-            {"name": "portrait-sketch-woman", "size": 80000},
-            {"name": "portrait-sketch-woman2", "size": 49870}
+            {"name": "portrait-sketch-man", "size": 125034},
+            {"name": "portrait-sketch-woman", "size": 130000},
+            {"name": "portrait-sketch-woman2", "size": 119870}
           ]
         },
         {"name": "portrait-mom", "size":173100}
@@ -45,9 +51,11 @@
     },
     {
       "name": "studies",
+      "isCategory": true,
       "children": [
         {
           "name": "still-life",
+          "isCategory": true,
           "children": [
             {"name": "still-life-acrylic", "size": 78918},
             {"name": "still-life-misc", "size": 63257},
@@ -59,9 +67,11 @@
     },
     {
       "name": "exploration",
+      "isCategory": true,
       "children": [
         {
           "name": "tribal",
+          "isCategory": true,
           "children": [
             {"name": "caveart", "size": 35000},
             {"name": "navajo", "size": 35000}
@@ -69,6 +79,7 @@
         },
         {
           "name": "optical-illusions",
+          "isCategory": true,
           "children": [
             {"name": "ink-mirage", "size": 96423}
           ]
