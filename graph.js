@@ -1,5 +1,8 @@
 // https://bl.ocks.org/mbostock/1093130
 
+const env = location.hostname === "localhost" || location.hostname === "127.0.0.1" ? "local" : "production";
+console.log("env:", env);
+
 let root;
 const width = window.innerWidth,
     height = window.innerHeight;
@@ -18,7 +21,6 @@ const svg = d3.select("body").append("svg")
 let link = svg.selectAll(".link"),
     node = svg.selectAll(".node"),
     defs = svg.append('svg:defs');
-
 
 run();
 
@@ -51,7 +53,7 @@ function update() {
       .attr("x", 0)
       .attr("y", 0)
       .append("svg:image")
-      .attr("xlink:href", function() { return d.isCategory ? '' : `img/${d.name}-min.jpg`; })
+      .attr("xlink:href", getImageLink(d))
       .attr("height", 2 * radius)
       .attr("x", 0)
       .attr("y", 0);
@@ -134,4 +136,9 @@ function flatten(root) {
 
   recurse(root);
   return nodes;
+}
+
+function getImageLink (d) { 
+  const filePath = d.isCategory ? '' : `img/${d.name}-min.jpg`; 
+  return env == "local" ? filePath : `https://github.com/michelle-chiang/visual-portfolio/raw/master/${filePath}`;
 }
